@@ -12,8 +12,11 @@
     --fw-bold: 900;
 
     --clr-light: #fff;
-    --clr-dark: #303030;
-    --clr-accent: #ffaa57;
+    --clr-darkGreen: #588c7c;
+    --clr-yellow: #f2e394;
+    --clr-orange: #f2ae72;
+    --clr-red: #d96459;
+    --clr-dark:#303030;
 
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -22,6 +25,8 @@
 
     --bs: 0.25em 0.25em 0.75em rgba(0,0,0,0.25),
     0.125em 0.125em 0.25em rgba(0,0,0, 0.15);
+
+    --radius: 1rem;
 }
 
 
@@ -39,7 +44,7 @@ html {
 }
 
 body {
-    background: var(--clr-light);
+    background: var(--clr-dark);
     color: var(--clr-dark);
     margin: 0;
     font-family: var(--ff-primary);
@@ -57,8 +62,8 @@ strong {
 .btn {
     display: inline-block;
     padding: .5em 2.5em;
-    background: var(--clr-accent);
-    color: var(--clr-dark);
+    background: var(--clr-light);
+    color: var(--clr-darkGreen);
     text-decoration: none;
     cursor: pointer;
     font-size: .8rem;
@@ -70,6 +75,7 @@ strong {
 .btn:hover {
     transform: scale(1.1);
 }
+
 /* ************************Typography* ***************************/
 h1,
 h2,
@@ -82,13 +88,17 @@ h1 { font-size: var(--fs-h1) }
 h2 { font-size: var(--fs-h2) }
 h3 { font-size: var(--fs-h3) }
 
+.section__title {
+    margin-bottom: .25rem;
+}
 /* ************************Typography finished* ***************************/
 header {
     display: flex;
     justify-content: space-between;/* useful at first, but the hamburger is out of doc anyway later*/
     align-items: center;
-    margin: 0 1em;
     position: relative;
+    margin: 0 1rem;
+    height: 10vh;
 }
 /******** 1. logo section **********/
 .logo-section {
@@ -96,6 +106,7 @@ header {
     justify-content: flex-start;
     align-items: center;
     font-family: var(--ff-primary);
+    color: var(--clr-light);
 }
 .logo {
     font-size: var(--fs-h2);
@@ -120,7 +131,7 @@ header {
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-    background-color: var(--clr-accent);
+    background-color: var(--clr-light);
     width: 4em;
     height: 6px;
     border-radius: 1em;
@@ -140,7 +151,7 @@ header {
 /******** 3. nav **********/
 .nav {
     position: fixed; /*entire nav is out of the doc*/
-    background: var(--clr-dark);
+    background: var(--clr-darkGreen);
     color: var(--clr-light);
     top: 0;
     bottom: 0;
@@ -168,7 +179,7 @@ header {
     text-decoration: none; /*the underline*/
 }
 .nav-link:hover {
-    color: var(--clr-accent);
+    color: var(--clr-dark);
 }
 
 .nav-open .nav {
@@ -190,11 +201,10 @@ header {
 /***************** Hero Section *************************/
 .hero-section {
     width: 100vw;
-    height: 70vh;
-    background-image: url(img/header_image.jpg);
-    background-repeat: no-repeat;
+    height: 900px;
+    position: relative;
+    background: url("/img/dark.jpg");
     background-size: cover;
-    position:relative;
 }
 .hero-content {
     width: 80%;
@@ -202,7 +212,7 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: var(--clr-dark);
+    color: var(--clr-light);
     text-align: center;
     font-family: var(--ff-primary);
 
@@ -220,4 +230,94 @@ header {
     .btn {
       font-size: 1.25rem;
     }
+}
+
+/***************** Value Section *************************/
+
+.our-value {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width:90%;
+    margin: 2em auto;
+    color: var(--clr-dark);
+}
+.our-value h2 {
+    color: var(--clr-light);
+    margin-bottom: 0.5em;
+}
+.value-img {
+    display: none;
+}
+.value-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+@media (min-width: 1350px) {
+    .value-body {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    .value-img {
+        display: inline-block;
+        width: 35%;
+        object-fit: cover;
+        border-radius: var(--radius);
+        margin-right: 1.5em;
+
+    }
+}
+
+.value-text {
+    background: var(--clr-light);
+    border-radius: var(--radius);
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+.value-btn-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+
+.value-btn {
+    padding: 1em 0;
+    border: none;
+    text-transform: capitalize;
+    font-size: 1rem;
+    display: block;
+    background: var(--clr-light);
+    cursor: pointer;
+    transition: all 0.3s linear;
+    letter-spacing: 0.1rem;
+
+}
+.value-btn:nth-child(1) {
+    border-top-left-radius: var(--radius);
+}
+.value-btn:nth-child(3) {
+    border-top-right-radius: var(--radius);
+}
+
+.value-btn:hover:not(.active){
+    background: var(--clr-darkGreen);
+    color: var(--clr-dark);
+}
+.value-content-container {
+    border-bottom-left-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+    padding: 2rem 1.5rem;
+}
+.value-content {
+    display: none;
+}
+.value-content.active {
+    display: block;
+}
+.value-btn.active {
+    background: var(--clr-darkGreen);
 }
