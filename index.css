@@ -546,3 +546,9 @@ to be abs as well, then use top-down grid and display-item: center. see 15 javas
         padding: 1.5em 1.75em;
     }
 }
+
+/***************** Question Section *************************/
+.question-section {
+    max-width: 90%;
+   margin-top: 20em;
+}
