@@ -527,6 +527,7 @@ header {
 .modal-right a {
     text-decoration: none;
     letter-spacing: 0.05em;
+    color: inherit;
 }
 .modal-right button:hover {
     transform: scale(1.1);
