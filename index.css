@@ -425,6 +425,9 @@ header {
     transform: scale(1.5);
 }
 /***************** Modal Section *************************/
+
+/*.modal-section: fixed; .modal: absolute; but if you got a buttn inside the modal that needs
+to be abs as well, then use top-down grid and display-item: center. see 15 javascript: modal*/
 .modal-section {
     display: none;
     position: fixed;
