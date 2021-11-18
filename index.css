@@ -425,9 +425,17 @@ header {
     transform: scale(1.5);
 }
 /***************** Modal Section *************************/
-
 .modal-section {
     max-width: 90%;
+    display: none;
+}
+.modal-active{
+    max-width: 90%;
+    display: block;
+
+}
+.modal {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -435,7 +443,7 @@ header {
     padding: 1em 2.5em;
 }
 @media (min-width: 800px) {
-    .modal-section {
+    .modal{
         padding: 1em 5em;
     }
 }

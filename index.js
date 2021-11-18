@@ -129,6 +129,14 @@ function prevPerson(){
     showPerson(counter);
 }
 
+//***************** Modal Section *************************/
+const modalSection = document.querySelector(".modal-section")
+
+window.addEventListener("DOMContentLoaded", function(){
+    setTimeout(()=>{
+        modalSection.classList.add("modal-active");
+    }, 3000);
+})
 
 
 
