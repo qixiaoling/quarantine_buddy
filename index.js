@@ -132,11 +132,21 @@ function prevPerson(){
 //***************** Modal Section *************************/
 const modalSection = document.querySelector(".modal-section")
 
-window.addEventListener("DOMContentLoaded", function(){
+window.addEventListener("DOMContentLoaded", showModal);
+
+
+
+function showModal(){
     setTimeout(()=>{
         modalSection.classList.add("modal-active");
     }, 3000);
-})
+
+    const modalCloseBtn= document.querySelector(".modal-close-btn");
+    modalCloseBtn.addEventListener("click", function(){
+        modalSection.classList.remove("modal-active")
+        console.log("hi am modal");
+    })
+}
 
 
 
