@@ -192,7 +192,8 @@ header {
 }
 
 .nav-open .nav-toggle {
-    position: fixed;/*was absolute*/
+    position: fixed;/*was absolute. When making it fixed,
+    if user click on Gallery, the nav-toggle will not go up to the top of the page.*/
 }
 .nav-open .hamburger {
     transform: rotate(.625turn);
@@ -204,6 +205,8 @@ header {
     opacity: 0;
 }
 /***************** Hero Section *************************/
+/*logo and hero sections are not with special position, abs or so, they are
+just stack on top of each other as the normal HTML flow*/
 .hero-section {
     width: 100vw;
     height: 900px;
@@ -548,7 +551,82 @@ to be abs as well, then use top-down grid and display-item: center. see 15 javas
 }
 
 /***************** Question Section *************************/
+
+/*See below 1,2,3,4 to make sure when text is added
+the container do not get wider.( as before the title is way shorter)*/
+
+/*See below A,B to make sure when text is shown, the text does not
+immediately shown below the border, but has a space. The trick here
+is to make sure that 1rem which was there originally (when text is not shown)
+ is always there. But the reality is when you click the text open, the space
+ between the title and the text may not be ideal, therefore we need that padding-bottem
+ on the title. but doing so, it could cause double the padding on the question container
+ therefore, we only have 3 sided padding on the question container, and add only
+ padding bottom to the question-title container.*/
+
 .question-section {
     max-width: 90%;
-   margin-top: 20em;
+    padding: 3em 5em;
+    background-color: var(--clr-darkGreen);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: var(--radius);
 }
+.section__title{
+    margin-bottom: 2em;
+}
+
+.question-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80vw;/*1 Not wider*/
+    max-width: 620px;/*2 Not wider*/
+}
+.question {
+    border: none;
+    box-shadow: var(--bs);
+    border-radius: var(--radius);
+    margin-bottom: 3em;
+    padding: 1rem 1rem 0em 1rem; /**A.*/
+    width: 100%;/*3 Not wider*/
+}
+.question-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;  /**B*/
+}
+.question-title p {
+    margin: 0;
+}
+.question-text {
+    display: none;/*4 Not wider*/
+}
+.question-btn {
+    background-color: transparent;
+    border: transparent;
+    font-size: var(--fs-h3);
+    color: var(--clr-light);
+    transition: transform 0.3s linear;
+}
+
+.question-btn:hover {
+    transform: rotate(90deg);
+}
+.minus-icon {
+    display: none;
+}
+.show-text .question-text  {
+    display: block;
+}
+.show-text .minus-icon {
+    display: block;
+}
+.show-text .plus-icon {
+    display: none;
+}
+
