@@ -630,3 +630,67 @@ is to make sure that 1rem which was there originally (when text is not shown)
     display: none;
 }
 
+/***************** Gallery Section *************************/
+.gallery-section {
+    max-width: 90%;
+    padding: 3em 5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.section__title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.gallery-slide-container {
+    position: relative;
+    width: 100%;
+    border: 5px solid var(--clr-darkGreen);
+    max-width: 80rem;
+    margin: 0 auto;
+    height: 45vh;
+    border-radius: var(--radius);
+    overflow: hidden;
+    object-fit: cover;
+
+}
+
+.gallery-btn-container {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 1em;
+}
+.gallery-prev-btn,
+.gallery-next-btn {
+    background: transparent;
+    color: var(--clr-red);
+    border-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    font-size: var(--fs-h3);
+}
+.gallery-slide {
+    margin-bottom: 1rem;
+}
+.slide {
+    position: absolute;
+    width: 100%;/*Don't forget it*/
+    height: 100%;/*Don't forget it*/
+}
+/*.slide:nth-child(1) {*/ /*now they all sitting on top of each other*/
+/*    left: 0;*/
+/*}*/
+/*.slide:nth-child(2) {*/
+/*    left: 100%;*/
+/*}*/
+/*.slide:nth-child(3) {*/
+/*    left: 200%;*/
+/*}*/
+/*.slide:nth-child(4) {*/
+/*    left: 300%;*/
+/*}*/
