@@ -75,14 +75,8 @@ const reviews = [
     },
 ];
 
+const body = document.querySelector(".review-body");
 
-const name = document.querySelector(".review-name");
-const img = document.querySelector(".review-img");
-const job = document.querySelector(".review-job-title");
-const text = document.querySelector(".review-text");
-
-const nextBtn = document.querySelector(".next-btn");
-const prevBtn = document.querySelector(".prev-btn");
 
 let counter = 0;
 
@@ -90,29 +84,71 @@ window.addEventListener("DOMContentLoaded", function () {
     showPerson(counter);
 });
 
-nextBtn.addEventListener("click", function(){
+
+
+function showPerson(index) {
+    const profile = reviews[index];
+
+    body.innerHTML = `<div class="review-img-container">
+        <img class="review-img"
+             src=${profile.img}
+        alt=${profile.name}/>
+    </div>
+    <h4 class="review-name">${profile.name}</h4>
+    <p class="review-text">${profile.text}
+    </p>
+    <p class="review-job-title">${profile.job}</p>
+    <div class="review-btn-container">
+        <button class="prev-btn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="next-btn">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>`
+
+    const nextBtn = document.querySelector(".next-btn");
+    nextBtn.addEventListener("click", nextPerson);
+    const prevBtn = document.querySelector(".prev-btn");
+    prevBtn.addEventListener("click", prevPerson);
+
+
+}
+function nextPerson(){
     counter++;
     if(counter > reviews.length-1){
         counter = 0;
     }
     showPerson(counter);
-})
-prevBtn.addEventListener("click", function (){
+}
+function prevPerson(){
     counter--;
     if(counter < 0){
         counter = reviews.length-1;
     }
     showPerson(counter);
-})
-
-function showPerson(index) {
-    const profile = reviews[index];
-    name.textContent = profile.name;
-    img.src = profile.img;
-    job.textContent = profile.job;
-    text.textContent = profile.text;
-
 }
+
+//***************** Modal Section *************************/
+const modalSection = document.querySelector(".modal-section")
+
+window.addEventListener("DOMContentLoaded", showModal);
+
+
+
+function showModal(){
+    setTimeout(()=>{
+        modalSection.classList.add("modal-active");
+    }, 3000);
+
+    const modalCloseBtn= document.querySelector(".modal-close-btn");
+    modalCloseBtn.addEventListener("click", function(){
+        modalSection.classList.remove("modal-active")
+        console.log("hi am modal");
+    })
+}
+//***************** Questions Section *************************/
+//***************** Gallery Section *************************/
 
 
 

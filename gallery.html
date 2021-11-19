@@ -2,9 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quarantine Buddy</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+          integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+          crossorigin="anonymous">
+    <Link rel="stylesheet" href="index.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Road+Rage&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Road+Rage&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Gallery</h1>
+<header>
+    <div class="logo-section">
+        <div class="logo">
+            <i class="fas fa-shipping-fast"></i>
+        </div>
+        <div>
+            <h2>Quarantine Buddy</h2>
+        </div>
+    </div>
+    <button class="nav-toggle">
+        <span class="hamburger"></span>
+    </button>
+    <nav class="nav">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="index.html#grocery" class="nav-link">Grocery</a></li>
+            <li class="nav-item"><a href="index.html#our_menu" class="nav-link">Our Menu</a></li>
+            <li class="nav-item"><a href="index.html#our_story" class="nav-link">Our Story</a></li>
+            <li class="nav-item"><a href="index.html#review" class="nav-link">Review</a></li>
+            <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+            <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+
+</header>
+    <section class="gallery-section">
+        <div class="section__title">
+            <h2>Gallery</h2>
+            <p>A few pics of our grocery shop</p>
+        </div>
+        <div class="gallery-slide-container">
+            <div class="slide">
+                <img src="img/grocery_1.jpg"/>
+            </div>
+            <div class="slide">
+                <img src="img/grocery_2.jpg"/>
+            </div>
+            <div class="slide">
+                <img src="img/grocery_3.jpg"/>
+            </div>
+            <div class="slide">
+                <img src="img/grocery_4.jpg"/>
+            </div>
+
+        </div>
+        <div class="gallery-btn-container">
+            <button class="gallery-prev-btn">Prev</button>
+            <button class="gallery-next-btn">Next</button>
+        </div>
+
+
+    </section>
+
+
+<script src="gallery.js">
+
+</script>
 </body>
 </html>
