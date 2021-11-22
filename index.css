@@ -116,7 +116,10 @@ header {
 .logo {
     font-size: var(--fs-h2);
 }
-
+.logo-link {
+    color: var(--clr-light);
+    text-decoration: none;
+}
 /******** 2. Hamburger menu **********/
 .nav-toggle {
     position: absolute;/*out of doc, later when.open-nav, becomes even fixed*/
