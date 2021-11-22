@@ -81,3 +81,61 @@ const menu = [
         desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
     },
 ];
+const btnSection = document.querySelector(".menu-btn-container");
+
+const menuSection = document.querySelector(".menu-section-center");
+window.addEventListener("DOMContentLoaded", function(){
+    loadMenuItems(menu);
+    loadMenuBtns();
+})
+
+function loadMenuItems(menus){
+    let menuItems = menus.map(function(menuItem) {
+        return `<article class="menu-item" data-id=${menuItem.category}>
+      <img src=${menuItem.img} alt=${menuItem.title} class="photo" />
+      <div class="item-info">
+        <div class="item-title">
+          <h4>${menuItem.title}</h4>
+          <h4 class="price">$ ${menuItem.price}</h4>
+        </div>
+        <p class="item-text">
+          ${menuItem.desc}
+        </p>
+      </div>
+    </article>`;
+    })
+    menuItems = menuItems.join("");
+    menuSection.innerHTML = menuItems;
+}
+function loadMenuBtns(){
+  const categories = menu.reduce(function(values, menuItem){
+      if(!values.includes(menuItem.category)){
+          values.push(menuItem.category);
+      }
+      return values;
+  }, ["all"]);
+
+  let btns = categories.map(function(category){
+      return `<button type="button" class="filter-btn" data-id=${category}>${category}</button>
+`});
+  btns = btns.join("");/*John used const and directly .join("")*/
+  btnSection.innerHTML = btns;
+/*filtering*/
+  const categoryBtns = btnSection.querySelectorAll(".filter-btn");
+  categoryBtns.forEach(function(btn){
+      btn.addEventListener("click", function(e){
+          const targetCategory = e.currentTarget.dataset.id;
+          const selectedMenuArray =  menu.filter(function(menuItem){
+              if(menuItem.category === targetCategory){
+                  return menuItem;
+              }
+          })
+          if(targetCategory === "all"){
+              loadMenuItems(menu);
+          }else {
+              loadMenuItems(selectedMenuArray);
+          }
+
+      })
+  })
+}

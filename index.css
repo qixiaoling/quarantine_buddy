@@ -62,8 +62,9 @@ strong {
 .btn {
     display: inline-block;
     padding: .5em 2.5em;
-    background: var(--clr-light);
-    color: var(--clr-darkGreen);
+    background: var(--clr-darkGreen);
+    color: var(--clr-dark);
+    border-radius: var(--radius);
     text-decoration: none;
     cursor: pointer;
     font-size: .8rem;
@@ -702,6 +703,9 @@ is to make sure that 1rem which was there originally (when text is not shown)
 
 .menu-section {
     max-width: 95vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 .menu-title {
@@ -710,7 +714,7 @@ is to make sure that 1rem which was there originally (when text is not shown)
     margin-bottom: 3em;
 }
 .menu-btn-container {
-    width: 100%;
+    width: 60%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -736,7 +740,52 @@ is to make sure that 1rem which was there originally (when text is not shown)
 .menu-item {
     display: grid;/*second grid*/
     grid-template-rows: 1fr;
-    grid-row-gap: 2em;
+    grid-row-gap: 0.5em;
     max-width: 25rem;^/*so that it will not be that big,
-    as it is for small screen anyway*/
+    since it is for small screen anyway*/
+}
+.photo {
+    width: 100%;
+    height: 225px;
+    object-fit: cover;
+    border: 5px solid var(--clr-yellow);
+    border-radius: var(--radius);
+
+}
+.item-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px dashed var(--clr-darkGreen);
+}
+.item-title h4 {
+    margin: 0.5em;
+}
+.item-title p {
+    margin: 0;
+}
+@media (min-width: 800px) {
+    .menu-item {
+        display: grid;
+        grid-template-columns: 225px 1fr;
+        grid-column-gap: 1.25em;
+        max-width: 40rem;
+    }
+    .photo {
+        height: 175px;
+    }
+
+}
+@media (min-width: 1200px) {
+    .menu-section-center {
+        max-width: 75vw;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3em 2em;
+        justify-items: center;
+    }
+    .photo {
+        height: 175px;
+    }
 }
