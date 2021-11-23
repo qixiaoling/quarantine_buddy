@@ -19,6 +19,7 @@
     --clr-orange-darker: #D99C66;
     --clr-red: #d96459;
     --clr-red-darker: #c35a50;
+    --clr-red-light: #E4928A;
     --clr-dark:#303030;
 
     --fs-h1: 3rem;
@@ -810,7 +811,7 @@ is to make sure that 1rem which was there originally (when text is not shown)
 }
 .grocery-alert {
     margin-bottom: 1em;
-    height: 1.25rem;
+    height: 1.5rem;
     display: grid;/* ^^1 To center things with Grid*/
     align-items: center;/* ^^2 on Y axis*/
     text-align: center;/* ^^3 on X axis*/
@@ -820,7 +821,7 @@ is to make sure that 1rem which was there originally (when text is not shown)
 }
 .alert-danger {
     color: var(--clr-red);
-    background-color: var(--clr-light);
+    background-color: var(--clr-red-light);
 }
 .alert-success {
     color: var(--clr-darkGreen);
@@ -911,5 +912,24 @@ button looks nice and take up the 100% of the space*/
     color: var(--clr-red);
 }
 .delete-btn:hover {
+    color: var(--clr-red-darker);
+}
+.clear-btn {
+    text-transform: capitalize;
+    width: 10rem;
+    height: 1.5rem;
+    display: grid;
+    align-items: center;
+    background-color: transparent;
+    border: transparent;
+    color: var(--clr-red);
+    margin: 0 auto;/*in the middle*/
+    font-size: var(--fs-body);
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 1.25rem;
+}
+.clear-btn:hover {
     color: var(--clr-red-darker);
 }
