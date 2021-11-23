@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quarantine Buddy</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+          integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+          crossorigin="anonymous">
+    <Link rel="stylesheet" href="index.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Road+Rage&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Road+Rage&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="logo-section">
+        <div class="logo">
+            <a class="logo-link" href="index.html">
+                <i class="fas fa-shipping-fast"></i>
+            </a>
+        </div>
+        <div>
+            <a class="logo-link" href="index.html">
+                <h2>Quarantine Buddy</h2>
+            </a>
+        </div>
+    </div>
+    <button class="nav-toggle">
+        <span class="hamburger"></span>
+    </button>
+    <nav class="nav">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="index.html#grocery" class="nav-link">Grocery</a></li>
+            <li class="nav-item"><a href="index.html#our_menu" class="nav-link">Our Menu</a></li>
+            <li class="nav-item"><a href="index.html#our_story" class="nav-link">Our Story</a></li>
+            <li class="nav-item"><a href="index.html#review" class="nav-link">Review</a></li>
+            <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+            <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="grocery-section">
+    <form class="grocery-form">
+        <p class="grocery-alert alert-danger">test</p>
+        <h3>Grocery Bud</h3>
+        <div class="form-control">
+            <input id="grocery" type="text" placeholder="e.g.eggs"/>
+            <button type="submit" class="submit-btn">Submit</button>
+        </div>
+    </form>
+    <div class="grocery-container show-container">
+        <div class="grocery-list">
+            <article class="grocery-item" data-id="id">
+                <p class="grocery-title">milk</p>
+                <div class="grocery-btn-container">
+                    <button type="button" class="edit-btn">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button type="button" class="delete-btn">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </article>
+            <article class="grocery-item" data-id="id">
+                <p class="grocery-title">cheese</p>
+                <div class="grocery-btn-container">
+                    <button type="button" class="edit-btn">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button type="button" class="delete-btn">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </article>
+        </div>
+        <button type="button" class="clear-btn">clear items</button>
+    </div>
+</section>
+
+
+<script src="grocery.js">
+
+</script>
+</body>
+</html>
