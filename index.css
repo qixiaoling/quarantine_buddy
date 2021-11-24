@@ -13,9 +13,13 @@
 
     --clr-light: #fff;
     --clr-darkGreen: #588c7c;
+    --clr-darkGreen-darker: #4F7E6F;
     --clr-yellow: #f2e394;
     --clr-orange: #f2ae72;
+    --clr-orange-darker: #D99C66;
     --clr-red: #d96459;
+    --clr-red-darker: #c35a50;
+    --clr-red-light: #E4928A;
     --clr-dark:#303030;
 
     --fs-h1: 3rem;
@@ -26,7 +30,13 @@
     --bs: 0.25em 0.25em 0.75em rgba(0,0,0,0.25),
     0.125em 0.125em 0.25em rgba(0,0,0, 0.15);
 
+    --bs-dark: 0.25em 0.25em 0.75em var(--clr-darkGreen),
+    0.125em 0.125em 0.25em var(--clr-darkGreen);
+
     --radius: 1rem;
+    --radius-small: 0.25rem;
+
+    --transition: all 0.3s linear;
 }
 
 
@@ -62,8 +72,9 @@ strong {
 .btn {
     display: inline-block;
     padding: .5em 2.5em;
-    background: var(--clr-light);
-    color: var(--clr-darkGreen);
+    background: var(--clr-darkGreen);
+    color: var(--clr-dark);
+    border-radius: var(--radius);
     text-decoration: none;
     cursor: pointer;
     font-size: .8rem;
@@ -116,7 +127,10 @@ header {
 .logo {
     font-size: var(--fs-h2);
 }
-
+.logo-link {
+    color: var(--clr-light);
+    text-decoration: none;
+}
 /******** 2. Hamburger menu **********/
 .nav-toggle {
     position: absolute;/*out of doc, later when.open-nav, becomes even fixed*/
@@ -301,7 +315,7 @@ just stack on top of each other as the normal HTML flow*/
     display: block;
     background: var(--clr-light);
     cursor: pointer;
-    transition: all 0.3s linear;
+    transition: var(--transition);
     letter-spacing: 0.1rem;
 
 }
@@ -420,7 +434,7 @@ just stack on top of each other as the normal HTML flow*/
     color: var(--clr-red);
     border-color: transparent;
     cursor: pointer;
-    transition: all 0.3s linear;
+    transition: var(--transition);
     font-size: var(--fs-h3);
 }
 .prev-btn:hover,
@@ -478,7 +492,7 @@ to be abs as well, then use top-down grid and display-item: center. see 15 javas
     cursor: pointer;
     font-weight: var(--fw-bold);
     color: var(--clr-dark);
-    transition: all 0.3s linear;
+    transition: var(--transition);
 }
 .modal-close-btn:hover {
     transform: rotate(360deg);
@@ -671,7 +685,7 @@ is to make sure that 1rem which was there originally (when text is not shown)
     color: var(--clr-red);
     border-color: transparent;
     cursor: pointer;
-    transition: all 0.3s linear;
+    transition:var(--transition);
     font-size: var(--fs-h3);
 }
 .gallery-slide {
@@ -694,3 +708,228 @@ is to make sure that 1rem which was there originally (when text is not shown)
 /*.slide:nth-child(4) {*/
 /*    left: 300%;*/
 /*}*/
+
+/***************** Menu Section *************************/
+
+.menu-section {
+    max-width: 95vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.menu-title {
+    position: relative;
+    text-align: center;
+    margin-bottom: 3em;
+}
+.menu-btn-container {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 2em;
+}
+.filter-btn {
+    color: var(--clr-light);
+    font-size: var(--fs-body);
+    background: transparent;
+    padding: 0.5em 0.8em;
+    border-radius: 10%;
+    border: 2px solid var(--clr-yellow);
+}
+.menu-section-center {
+    width: 100%;
+    margin: 0 auto; /*^^^^Put the container in the center*/
+    display: grid;/*first grid*/
+    grid-template-columns: 1fr;
+    grid-row-gap: 3em;
+    justify-items: center;/*^^^^Put the items inside in the center.*/
+}
+
+.menu-item {
+    display: grid;/*second grid*/
+    grid-template-rows: 1fr;
+    grid-row-gap: 0.5em;
+    max-width: 25rem;^/*so that it will not be that big,
+    since it is for small screen anyway*/
+}
+.photo {
+    width: 100%;
+    height: 225px;
+    object-fit: cover;
+    border: 5px solid var(--clr-yellow);
+    border-radius: var(--radius);
+
+}
+.item-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px dashed var(--clr-darkGreen);
+}
+.item-title h4 {
+    margin: 0.5em;
+}
+.item-title p {
+    margin: 0;
+}
+@media (min-width: 800px) {
+    .menu-item {
+        display: grid;
+        grid-template-columns: 225px 1fr;
+        grid-column-gap: 1.25em;
+        max-width: 40rem;
+    }
+    .photo {
+        height: 175px;
+    }
+
+}
+@media (min-width: 1200px) {
+    .menu-section-center {
+        max-width: 75vw;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3em 2em;
+        justify-items: center;
+    }
+    .photo {
+        height: 175px;
+    }
+}
+
+/***************** Grocery Section *************************/
+.grocery-section {
+    width: 60vw;
+    max-width: 50rem;
+    background-color: var(--clr-orange);
+    border-radius: var(--radius);
+    box-shadow: var(--bs);
+    padding: 2rem 3.5rem;
+}
+.grocery-alert {
+    margin-bottom: 1em;
+    height: 1.5rem;
+    display: grid;/* ^^1 To center things with Grid*/
+    align-items: center;/* ^^2 on Y axis*/
+    text-align: center;/* ^^3 on X axis*/
+    border-radius: 0.25rem;
+    letter-spacing: 0.1rem;
+    text-transform: capitalize;
+}
+.alert-danger {
+    color: var(--clr-red);
+    background-color: var(--clr-red-light);
+}
+.alert-success {
+    color: var(--clr-darkGreen);
+    background-color: var(--clr-light);
+}
+.grocery-form h3 {
+    color: var(--clr-dark);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.form-control {/* @@1 this plus #grocery, together, makes the input and the submit
+button looks nice and take up the 100% of the space*/
+    display: flex;
+    justify-content: center;
+}
+
+#grocery {
+    padding: 0.25rem;
+    padding-left: 1rem;
+    background-color: hsl(210, 36%, 96%);
+    border-top-left-radius: var(--radius-small);
+    border-bottom-left-radius: var(--radius-small);
+    border-color: transparent;
+    font-size: 1rem;
+    flex: 1 0 auto;/*@@2 flex items:::it makes it longer, grow but not shrink,
+    takes up 100% of the space*/
+}
+.submit-btn {
+    background-color: var(--clr-red);
+    border-color: transparent;
+    flex: 0 0 5rem;/*@@3 flex items:::do not grow, do not shrink and stay always 5rem*/
+    display: grid;
+    align-items: center;
+    padding: 0.25rem;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    border-top-right-radius: var(--radius-small);
+    border-bottom-right-radius: var(--radius-small);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition:var(--transition);
+}
+.submit-btn:hover {
+    background-color: var(--clr-red-darker);
+    color: var(--clr-light);
+}
+
+.grocery-container {
+    margin-top: 2rem;
+    transition: var(--transition);
+    visibility: hidden;
+}
+.show-container {
+    visibility: visible;
+}
+.grocery-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    transition: var(--transition);
+    padding: 0.25rem 1rem;
+    border-radius: var(--radius-small);
+    text-transform: capitalize;
+}
+.grocery-item:hover {
+    background-color: var(--clr-orange-darker);
+    color: var(--clr-dark);
+}
+.grocery-title {
+    letter-spacing: 2px;
+}
+.edit-btn,
+.delete-btn {
+    border: transparent;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 0 0.15rem;
+    transition: var(--transition);
+}
+.edit-btn {
+    color: var(--clr-darkGreen);
+}
+.edit-btn:hover {
+    color: var(--clr-darkGreen-darker);
+}
+.delete-btn {
+    color: var(--clr-red);
+}
+.delete-btn:hover {
+    color: var(--clr-red-darker);
+}
+.clear-btn {
+    text-transform: capitalize;
+    width: 10rem;
+    height: 1.5rem;
+    display: grid;
+    align-items: center;
+    background-color: transparent;
+    border: transparent;
+    color: var(--clr-red);
+    margin: 0 auto;/*in the middle*/
+    font-size: var(--fs-body);
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 1.25rem;
+}
+.clear-btn:hover {
+    color: var(--clr-red-darker);
+}

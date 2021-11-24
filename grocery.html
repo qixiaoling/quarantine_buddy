@@ -42,39 +42,28 @@
             <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
         </ul>
     </nav>
-
-
 </header>
-    <section class="gallery-section">
-        <div class="section__title">
-            <h2>Gallery</h2>
-            <p>A few pics of our grocery shop</p>
+<section class="grocery-section">
+    <form class="grocery-form">
+        <p class="grocery-alert"></p>
+        <h3>Grocery Bud</h3>
+        <div class="form-control">
+            <input id="grocery" type="text" placeholder="e.g.eggs"/>
+            <button type="submit" class="submit-btn">Submit</button>
         </div>
-        <div class="gallery-slide-container">
-            <div class="slide">
-                <img src="img/grocery_1.jpg"/>
-            </div>
-            <div class="slide">
-                <img src="img/grocery_2.jpg"/>
-            </div>
-            <div class="slide">
-                <img src="img/grocery_3.jpg"/>
-            </div>
-            <div class="slide">
-                <img src="img/grocery_4.jpg"/>
-            </div>
+    </form>
+    <div class="grocery-container">
+        <div class="grocery-list">
+            <article class="grocery-item" data-id="id">
 
+            </article>
         </div>
-        <div class="gallery-btn-container">
-            <button class="gallery-prev-btn">Prev</button>
-            <button class="gallery-next-btn">Next</button>
-        </div>
+        <button type="button" class="clear-btn">clear items</button>
+    </div>
+</section>
 
 
-    </section>
-
-
-<script src="gallery.js">
+<script src="grocery.js">
 
 </script>
 </body>
