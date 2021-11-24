@@ -934,11 +934,15 @@ button looks nice and take up the 100% of the space*/
     color: var(--clr-red-darker);
 }
 /***************** Footer Section *************************/
-footer {
+.footer {
+    width: 100vw;
+    margin: 0 auto;
+}
+.footer-wrapper{
     width: 60vw;
     max-width: 65vw;
-    margin: 2em auto;
-    background-color: var(--clr-darkGreen);
+    margin: 0 auto;
+    padding: 2em 0;
 }
 .footer-title {
     display: grid;
@@ -949,6 +953,47 @@ footer {
 .footer-title h3 {
     flex: 1 0 auto;
 }
+.footer-form input,
+.footer-form button{
+    padding: 0.5rem;
+    font-family: var(--ff-primary);
+    border-radius: var(--radius-small);
+
+}
+.footer-form input {
+    border-color: transparent;
+    padding-left: 1rem;
+}
+.footer-form input::placeholder {
+    font-weight: var(--fw-bold);
+}
+.footer-form button {
+    border-color: var(--clr-light);
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+}
+.footer-text {
+    display: flex;
+    width: 55%;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-bottom i{
+    font-size: var(--fs-h3);
+}
+.footer-bottom p{
+    font-size: 0.85rem;
+}
+.social-icons {
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+
+
 .footer-body {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -967,6 +1012,14 @@ footer {
 }
 .footer-col {
     list-style: none;
+    padding-left: 0;
+}
+.footer-item h3:hover,
+.footer-item li:hover {
+    color:var(--clr-darkGreen);
+}
+.footer-col li {
+    font-weight: var(--fw-reg);
 }
 
 .footer-bottom {

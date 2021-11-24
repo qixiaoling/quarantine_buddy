@@ -132,9 +132,11 @@ function prevPerson(){
 //***************** Modal Section *************************/
 const modalSection = document.querySelector(".modal-section")
 
-window.addEventListener("DOMContentLoaded", showModal);
+window.addEventListener("DOMContentLoaded", dummy);
 
-
+function dummy(){
+    console.log("dummy")
+}
 
 function showModal(){
     setTimeout(()=>{
