@@ -933,3 +933,44 @@ button looks nice and take up the 100% of the space*/
 .clear-btn:hover {
     color: var(--clr-red-darker);
 }
+/***************** Footer Section *************************/
+footer {
+    width: 60vw;
+    max-width: 65vw;
+    margin: 2em auto;
+    background-color: var(--clr-darkGreen);
+}
+.footer-title {
+    display: grid;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3em;
+}
+.footer-title h3 {
+    flex: 1 0 auto;
+}
+.footer-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em 1em;
+    text-decoration: none;
+
+}
+@media (min-width: 800px) {
+    .footer-body {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+.footer-item {
+    display: flex;
+    flex-direction: column;
+}
+.footer-col {
+    list-style: none;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
