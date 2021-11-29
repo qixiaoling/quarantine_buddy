@@ -747,9 +747,9 @@ is to make sure that 1rem which was there originally (when text is not shown)
     justify-items: center;/*^^^^Put the items inside in the center.*/
 }
 
-.menu-item {
+.menu-item {//*must use second grid! because the layout will change when screen gets bigger!*/
     display: grid;/*second grid*/
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
     grid-row-gap: 0.5em;
     max-width: 25rem;^/*so that it will not be that big,
     since it is for small screen anyway*/
