@@ -808,6 +808,7 @@ is to make sure that 1rem which was there originally (when text is not shown)
     border-radius: var(--radius);
     box-shadow: var(--bs);
     padding: 2rem 3.5rem;
+    /*don't define height, as the list gets longer*/
 }
 .grocery-alert {
     margin-bottom: 1em;
