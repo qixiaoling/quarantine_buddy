@@ -74,7 +74,7 @@ strong {
     padding: .5em 2.5em;
     background: var(--clr-darkGreen);
     color: var(--clr-dark);
-    border-radius: var(--radius);
+    border-radius: var(--radius-small);
     text-decoration: none;
     cursor: pointer;
     font-size: .8rem;
@@ -245,6 +245,12 @@ just stack on top of each other as the normal HTML flow*/
     display: flex;
     justify-content: space-evenly;
 
+}
+.hero-link {
+    font-size: var(--fs-body);
+    font-weight: var(--fw-bold);
+    color: var(--clr-light);
+    text-decoration: none;
 }
 @media (min-width: 800px) {
     .btn-container {
