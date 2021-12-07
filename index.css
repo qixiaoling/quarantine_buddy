@@ -744,6 +744,10 @@ is to make sure that 1rem which was there originally (when text is not shown)
     border-radius: 10%;
     border: 2px solid var(--clr-yellow);
 }
+.filter-btn:hover {
+    background-color: var(--clr-yellow);
+    color: var(--clr-dark);
+}
 .menu-section-center {
     width: 100%;
     margin: 0 auto; /*^^^^Put the container in the center*/
