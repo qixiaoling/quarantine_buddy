@@ -93,7 +93,7 @@ const menu = [
         title: "quarantine Jelly",
         category: "Jelly-things",
         price: 16.99,
-        img: "./img/menu-img/item-9.jpeg",
+        img: "./img/menu-img/item-11.jpg",
         desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
     },
 ];
@@ -103,20 +103,22 @@ const menuSection = document.querySelector(".menu-section-center");
 window.addEventListener("DOMContentLoaded", function(){
     loadMenuItems(menu);
     loadMenuBtns();
+    ready();
 })
 
 function loadMenuItems(menus){
     let menuItems = menus.map(function(menuItem) {
         return `<article class="menu-item" data-id=${menuItem.category}>
-      <img src=${menuItem.img} alt=${menuItem.title} class="photo" />
+      <img src=${menuItem.img} alt=${menuItem.title} class="shop-item-photo" />
       <div class="item-info">
         <div class="item-title">
-          <h4>${menuItem.title}</h4>
-          <h4 class="price">$ ${menuItem.price}</h4>
+          <h4 class="shop-item-title">${menuItem.title}</h4>
+          <h4 class="shop-item-price">$ ${menuItem.price}</h4>
         </div>
         <p class="item-text">
           ${menuItem.desc}
         </p>
+        <button class=" btn shop-item-btn">Add To Cart</button>
       </div>
     </article>`;
     })
@@ -155,4 +157,125 @@ function loadMenuBtns(){
       })
   })
 }
+/*getElementsByClassName, most of the time, you need to add [0]; querySelector is much easier.*/
+function ready() {
+    const removeCartItemBtns = document.getElementsByClassName('btn-danger');
+    for (let i=0; i<removeCartItemBtns.length; i++) {
+        const removeBtn = removeCartItemBtns[i];
+        removeBtn.addEventListener('click', removeCartItem)
+    }
 
+
+    const quantityInputs = document.getElementsByClassName('cart-quantity-input');
+    for (let i = 0; i < quantityInputs.length ; i++) {
+        const input = quantityInputs[i];
+        input.addEventListener('change', quantityChanged);
+    }
+
+    const addToCartButtons = document.querySelectorAll('.shop-item-btn');
+    for (let i= 0 ; i< addToCartButtons.length; i++) {
+        const button = addToCartButtons[i];
+        button.addEventListener("click", addToCartClicked);
+    }
+
+    document.querySelector('.btn-purchase').addEventListener("click", purchaseClicked );
+}
+function purchaseClicked() {
+
+    alert('Thank you for your purchase');
+    const cartItems = document.querySelector('.cart-items');
+    /*CLEAR ALL*/
+    /* Solution 1: let parent keep removing the firstChild till it has no child anymore*/
+    while (cartItems.hasChildNodes()) {
+        cartItems.removeChild(cartItems.firstChild);
+    }
+
+    /* Solution 1: check if there are child under the parent, if yes, among the children,
+    for-each-child, let parent remove it.*/
+    // const cartItemCollection = document.querySelectorAll('.cart-items-individual');
+    // if (cartItemCollection.length > 0) {
+    //     cartItemCollection.forEach(function (item) {
+    //         cartItems.removeChild(item);
+    //     })
+    // }
+    updateCartTotal();
+
+}
+
+function removeCartItem (event) {
+    /*REMOVE ONE use remove and removeChild is the same,
+    * remove is newer, some browser doesn't support it, it doesn't require to
+    * referring to the parent node.*/
+    /* Solution 1: let the child self remove itself!!! */
+    // const buttonClicked = event.target
+    // buttonClicked.parentElement.parentElement.remove()
+
+    /* Solution 2:  let parent remove the child*/
+    const element = event.target.parentElement.parentElement;
+    console.log(element)
+    const cartItems = document.querySelector('.cart-items');
+    cartItems.removeChild(element);
+    updateCartTotal();
+}
+function updateCartTotal () {
+    const cartItemsContainer = document.querySelector('.cart-items');
+
+    const cartItemsInside = cartItemsContainer.querySelectorAll('.cart-items-individual');
+    let total = 0;
+    for (let i = 0; i < cartItemsInside.length ; i++) {
+        const cartItem = cartItemsInside[i];
+        const priceElement = cartItem.querySelector('.cart-price');
+        const price = parseFloat(priceElement.innerText.replace("$", ""));
+        const quantityElement = cartItem.querySelector('.cart-quantity-input');
+        const quantity = quantityElement.value;
+        total = total + (price * quantity);
+    }
+    total = Math.round(total * 100) / 100;
+    document.querySelector('.cart-total-price').innerHTML = '$'+ total
+}
+function quantityChanged (event) {
+    const input = event.target;
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1
+    }
+    updateCartTotal();
+}
+function addToCartClicked(event) {
+    const btn = event.target;
+    const shopItem = btn.parentElement.parentElement;
+    const title = shopItem.querySelector('.shop-item-title').innerText;
+    const price = shopItem.querySelector('.shop-item-price').innerText;
+    const imageSrc = shopItem.querySelector('.shop-item-photo').src;
+    addItemToCart(title, price, imageSrc);
+    updateCartTotal();
+
+}
+
+function addItemToCart(title, price, imageSrc) {
+    const cartItem = document.createElement('div');
+    cartItem.classList.add('cart-items-individual');
+    const cartItems = document.querySelector('.cart-items');
+    const cartItemsNames = cartItems.querySelectorAll('.cart-item-title');
+    for (let i=0; i<cartItemsNames.length ; i++) {
+        if(cartItemsNames[i].innerText === title) {
+            alert('This item is already added to the cart');
+            return
+        }
+    }
+
+    const cartItemContent = `
+        <div class="cart-item cart-column"> <!-- 45% -->
+        <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
+        <span class="cart-item-title">${title}</span>
+      </div>
+      <span class="cart-price cart-column">${price}</span> <!-- 20% -->
+      <div class="cart-quantity cart-column"> <!-- 35% -->
+        <input class="cart-quantity-input" type="number" value="1">
+        <button class="btn btn-danger" type="button">REMOVE</button>
+      </div>
+    `
+    cartItem.innerHTML = cartItemContent;
+    cartItems.appendChild(cartItem);
+    cartItem.querySelector('.btn-danger').addEventListener("click", removeCartItem);
+    cartItem.querySelector('.cart-quantity-input').addEventListener("change", quantityChanged);
+}

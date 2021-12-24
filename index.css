@@ -764,7 +764,7 @@ is to make sure that 1rem which was there originally (when text is not shown)
     max-width: 25rem;^/*so that it will not be that big,
     since it is for small screen anyway*/
 }
-.photo {
+.shop-item-photo {
     width: 100%;
     height: 225px;
     object-fit: cover;
@@ -784,6 +784,131 @@ is to make sure that 1rem which was there originally (when text is not shown)
 .item-title p {
     margin: 0;
 }
+/******************Cart TITLE**************************************/
+.cart-row {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+}
+.cart-item {
+    width: 45%;
+}
+
+.cart-header {
+    font-weight: bold;
+    font-size: 1.25em;
+    color: var(--clr-light);
+}
+
+.cart-column {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--clr-light);
+    margin-right: 1.5em;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+
+/******************Cart ITEMS **************************************/
+
+.cart-items {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+}
+.cart-items-individual {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.cart-item {
+    width: 45%;
+}
+
+.cart-price {
+    width: 20%;
+    font-size: 1.2em;
+    color: var(--clr-light);
+}
+
+.cart-quantity {
+    width: 35%;
+}
+
+.cart-item-title {
+    color: var(--clr-light);
+    margin-left: .5em;
+    font-size: 1.2em;
+}
+
+.cart-item-image {
+    width: 75px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.btn-danger {
+    color: white;
+    background-color: var(--clr-red);
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background-color: var(--clr-red);
+}
+
+.cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid var(--clr-yellow);
+    background-color: #eee;
+    color: var(--clr-dark);
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+
+.cart-row:last-child {
+    border-bottom: 1px solid var(--clr-light);
+}
+
+.cart-row:last-child .cart-column {
+    border: none;
+}
+/******************Cart TOTALS **************************************/
+
+
+.cart-total {
+    width: 90%;
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.cart-total-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-right: 20px;
+}
+
+.cart-total-price {
+    color: var(--clr-light);
+    font-size: 1.1em;
+}
+
+.btn-purchase {
+    display: block;
+    margin: 40px auto 80px auto;
+    font-size: 1.75em;
+}
 @media (min-width: 800px) {
     .menu-item {
         display: grid;
@@ -791,7 +916,7 @@ is to make sure that 1rem which was there originally (when text is not shown)
         grid-column-gap: 1.25em;
         max-width: 40rem;
     }
-    .photo {
+    .shop-item-photo {
         height: 175px;
     }
 
@@ -805,7 +930,7 @@ is to make sure that 1rem which was there originally (when text is not shown)
         gap: 3em 2em;
         justify-items: center;
     }
-    .photo {
+    .shop-item-photo {
         height: 175px;
     }
 }
