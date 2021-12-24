@@ -109,15 +109,16 @@ window.addEventListener("DOMContentLoaded", function(){
 function loadMenuItems(menus){
     let menuItems = menus.map(function(menuItem) {
         return `<article class="menu-item" data-id=${menuItem.category}>
-      <img src=${menuItem.img} alt=${menuItem.title} class="photo" />
+      <img src=${menuItem.img} alt=${menuItem.title} class="shop-item-photo" />
       <div class="item-info">
         <div class="item-title">
-          <h4>${menuItem.title}</h4>
-          <h4 class="price">$ ${menuItem.price}</h4>
+          <h4 class="shop-item-title">${menuItem.title}</h4>
+          <h4 class="shop-item-price">$ ${menuItem.price}</h4>
         </div>
         <p class="item-text">
           ${menuItem.desc}
         </p>
+        <button class=" btn shop-item-btn">Add To Cart</button>
       </div>
     </article>`;
     })
@@ -162,7 +163,7 @@ function ready() {
         const removeBtn = removeCartItemBtns[i];
         removeBtn.addEventListener('click', removeCartItem)
     }
-    updateCartTotal()
+
 
     const quantityInputs = document.getElementsByClassName('cart-quantity-input');
     for (let i = 0; i < quantityInputs.length ; i++) {
@@ -170,23 +171,71 @@ function ready() {
         input.addEventListener('change', quantityChanged);
     }
 
+    const addToCartButtons = document.querySelectorAll('.shop-item-btn');
+    for (let i= 0 ; i< addToCartButtons.length; i++) {
+        const button = addToCartButtons[i];
+        button.addEventListener("click", addToCartClicked);
+    }
+
 }
 
 function removeCartItem (event) {
-    const element = event.target.parentElement.parentElement;
-    element.remove();/*self remove self.*/
+    const buttonClicked = event.target
+    buttonClicked.parentElement.parentElement.remove()
+    updateCartTotal();
 }
 function updateCartTotal () {
     const cartItemsContainer = document.querySelector('.cart-items');
-    console.log(cartItemsContainer)
+
     const cartItemsInside = cartItemsContainer.querySelectorAll('.cart-items-individual');
-    console.log(cartItemsInside)
-    // for (let i = 0; i < cartItemsInside.length ; i++) {
-    //     const cartItem = cartItemsInside[i];
-    //     const priceElement = cartItem.getElementsByClassName('cart-price')
-    // }
+    let total = 0;
+    for (let i = 0; i < cartItemsInside.length ; i++) {
+        const cartItem = cartItemsInside[i];
+        const priceElement = cartItem.querySelector('.cart-price');
+        const price = parseFloat(priceElement.innerText.replace("$", ""));
+        const quantityElement = cartItem.querySelector('.cart-quantity-input');
+        const quantity = quantityElement.value;
+        total = total + (price * quantity);
+    }
+    total = Math.round(total * 100) / 100;
+    document.querySelector('.cart-total-price').innerHTML = '$'+ total
 }
-function quantityChanged () {
-    console.log("input is changed.")
+function quantityChanged (event) {
+    const input = event.target;
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1
+    }
+    updateCartTotal();
+}
+function addToCartClicked(event) {
+    const btn = event.target;
+    const shopItem = btn.parentElement.parentElement;
+    const title = shopItem.querySelector('.shop-item-title').innerText;
+    const price = shopItem.querySelector('.shop-item-price').innerText;
+    const imageSrc = shopItem.querySelector('.shop-item-photo').src;
+    addItemToCart(title, price, imageSrc);
+    updateCartTotal();
+
 }
 
+function addItemToCart(title, price, imageSrc) {
+    const cartItem = document.createElement('div');
+    cartItem.classList.add('cart-items-individual');
+    const cartItems = document.querySelector('.cart-items');
+
+    const cartItemContent = `
+        <div class="cart-item cart-column"> <!-- 45% -->
+        <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
+        <span class="cart-item-title">${title}</span>
+      </div>
+      <span class="cart-price cart-column">${price}</span> <!-- 20% -->
+      <div class="cart-quantity cart-column"> <!-- 35% -->
+        <input class="cart-quantity-input" type="number" value="1">
+        <button class="btn btn-danger" type="button">REMOVE</button>
+      </div>
+    `
+    cartItem.innerHTML = cartItemContent;
+    cartItems.appendChild(cartItem);
+    cartItem.querySelector('.btn-danger').addEventListener("click", removeCartItem);
+    cartItem.querySelector('.cart-quantity-input').addEventListener("change", quantityChanged);
+}
