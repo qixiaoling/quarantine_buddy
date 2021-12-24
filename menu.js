@@ -93,7 +93,7 @@ const menu = [
         title: "quarantine Jelly",
         category: "Jelly-things",
         price: 16.99,
-        img: "./img/menu-img/item-9.jpeg",
+        img: "./img/menu-img/item-11.jpg",
         desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
     },
 ];
