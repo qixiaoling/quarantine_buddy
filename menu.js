@@ -177,6 +177,27 @@ function ready() {
         button.addEventListener("click", addToCartClicked);
     }
 
+    document.querySelector('.btn-purchase').addEventListener("click", purchaseClicked );
+}
+function purchaseClicked() {
+    alert('Thank you for your purchase');
+    const cartItems = document.querySelector('.cart-items');
+
+    /* Solution 1: let parent keep removing the firstChild till it has no child anymore*/
+    while (cartItems.hasChildNodes()) {
+        cartItems.removeChild(cartItems.firstChild);
+    }
+
+    /* Solution 1: check if there are child under the parent, if yes, among the children,
+    for-each-child, let parent remove it.*/
+    // const cartItemCollection = document.querySelectorAll('.cart-items-individual');
+    // if (cartItemCollection.length > 0) {
+    //     cartItemCollection.forEach(function (item) {
+    //         cartItems.removeChild(item);
+    //     })
+    // }
+    updateCartTotal();
+
 }
 
 function removeCartItem (event) {
