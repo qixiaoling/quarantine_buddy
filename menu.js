@@ -103,6 +103,7 @@ const menuSection = document.querySelector(".menu-section-center");
 window.addEventListener("DOMContentLoaded", function(){
     loadMenuItems(menu);
     loadMenuBtns();
+    ready();
 })
 
 function loadMenuItems(menus){
@@ -154,5 +155,38 @@ function loadMenuBtns(){
 
       })
   })
+}
+function ready() {
+    const removeCartItemBtns = document.getElementsByClassName('btn-danger');
+    for (let i=0; i<removeCartItemBtns.length; i++) {
+        const removeBtn = removeCartItemBtns[i];
+        removeBtn.addEventListener('click', removeCartItem)
+    }
+    updateCartTotal()
+
+    const quantityInputs = document.getElementsByClassName('cart-quantity-input');
+    for (let i = 0; i < quantityInputs.length ; i++) {
+        const input = quantityInputs[i];
+        input.addEventListener('change', quantityChanged);
+    }
+
+}
+
+function removeCartItem (event) {
+    const element = event.target.parentElement.parentElement;
+    element.remove();/*self remove self.*/
+}
+function updateCartTotal () {
+    const cartItemsContainer = document.querySelector('.cart-items');
+    console.log(cartItemsContainer)
+    const cartItemsInside = cartItemsContainer.querySelectorAll('.cart-items-individual');
+    console.log(cartItemsInside)
+    // for (let i = 0; i < cartItemsInside.length ; i++) {
+    //     const cartItem = cartItemsInside[i];
+    //     const priceElement = cartItem.getElementsByClassName('cart-price')
+    // }
+}
+function quantityChanged () {
+    console.log("input is changed.")
 }
 

@@ -67,20 +67,36 @@
     <div class="underline"></div>
   </div>
   <div class="cart-row">
-    <span class="cart-item cart-header cart-column">ITEM</span>
-    <span class="cart-price cart-header cart-column">PRICE</span>
-    <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+    <span class="cart-item cart-header cart-column">ITEM</span> <!-- 45% -->
+    <span class="cart-price cart-header cart-column">PRICE</span> <!-- 20% -->
+    <span class="cart-quantity cart-header cart-column">QUANTITY</span> <!-- 35% -->
   </div>
   <div class="cart-items">
-    <div class="cart-item cart-column">
-      <img class="cart-item-image" src="./img/menu-img/item-1.jpeg" width="100" height="100">
-      <span class="cart-item-title">buttermilk pancakes</span>
+    <!-- first item -->
+    <div class="cart-items-individual">
+      <div class="cart-item cart-column"> <!-- 45% -->
+        <img class="cart-item-image" src="./img/menu-img/item-1.jpeg" width="100" height="100">
+        <span class="cart-item-title">buttermilk pancakes</span>
+      </div>
+      <span class="cart-price cart-column">1599</span> <!-- 20% -->
+      <div class="cart-quantity cart-column"> <!-- 35% -->
+        <input class="cart-quantity-input" type="number" value="1">
+        <button class="btn btn-danger" type="button">REMOVE</button>
+      </div>
     </div>
-    <span class="cart-price cart-column">1599</span>
-    <div class="cart-quantity cart-column">
-      <input class="cart-quantity-input" type="number" value="1">
-      <button class="btn btn-danger" type="button">REMOVE</button>
+    <!-- second item -->
+    <div class="cart-items-individual">
+      <div class="cart-item cart-column"> <!-- 45% -->
+        <img class="cart-item-image" src="./img/menu-img/item-1.jpeg" width="100" height="100">
+        <span class="cart-item-title">buttermilk pancakes</span>
+      </div>
+      <span class="cart-price cart-column">1599</span> <!-- 20% -->
+      <div class="cart-quantity cart-column"> <!-- 35% -->
+        <input class="cart-quantity-input" type="number" value="1">
+        <button class="btn btn-danger" type="button">REMOVE</button>
+      </div>
     </div>
+
   </div>
   <div class="cart-total">
     <strong class="cart-total-title">Total</strong>

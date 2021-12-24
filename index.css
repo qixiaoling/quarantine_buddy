@@ -790,6 +790,10 @@ is to make sure that 1rem which was there originally (when text is not shown)
     margin: 0 auto;
     display: flex;
 }
+.cart-item {
+    width: 45%;
+}
+
 .cart-header {
     font-weight: bold;
     font-size: 1.25em;
@@ -812,6 +816,12 @@ is to make sure that 1rem which was there originally (when text is not shown)
 .cart-items {
     width: 90%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+}
+.cart-items-individual {
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
@@ -857,9 +867,9 @@ is to make sure that 1rem which was there originally (when text is not shown)
     height: 34px;
     width: 50px;
     border-radius: 5px;
-    border: 1px solid #56CCF2;
+    border: 1px solid var(--clr-yellow);
     background-color: #eee;
-    color: #333;
+    color: var(--clr-dark);
     padding: 0;
     text-align: center;
     font-size: 1.2em;
