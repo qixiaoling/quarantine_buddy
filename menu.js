@@ -157,6 +157,7 @@ function loadMenuBtns(){
       })
   })
 }
+/*getElementsByClassName, most of the time, you need to add [0]; querySelector is much easier.*/
 function ready() {
     const removeCartItemBtns = document.getElementsByClassName('btn-danger');
     for (let i=0; i<removeCartItemBtns.length; i++) {
@@ -180,6 +181,7 @@ function ready() {
     document.querySelector('.btn-purchase').addEventListener("click", purchaseClicked );
 }
 function purchaseClicked() {
+
     alert('Thank you for your purchase');
     const cartItems = document.querySelector('.cart-items');
     /*CLEAR ALL*/
