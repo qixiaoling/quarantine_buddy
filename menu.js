@@ -182,7 +182,7 @@ function ready() {
 function purchaseClicked() {
     alert('Thank you for your purchase');
     const cartItems = document.querySelector('.cart-items');
-
+    /*CLEAR ALL*/
     /* Solution 1: let parent keep removing the firstChild till it has no child anymore*/
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild);
@@ -201,8 +201,18 @@ function purchaseClicked() {
 }
 
 function removeCartItem (event) {
-    const buttonClicked = event.target
-    buttonClicked.parentElement.parentElement.remove()
+    /*REMOVE ONE use remove and removeChild is the same,
+    * remove is newer, some browser doesn't support it, it doesn't require to
+    * referring to the parent node.*/
+    /* Solution 1: let the child self remove itself!!! */
+    // const buttonClicked = event.target
+    // buttonClicked.parentElement.parentElement.remove()
+
+    /* Solution 2:  let parent remove the child*/
+    const element = event.target.parentElement.parentElement;
+    console.log(element)
+    const cartItems = document.querySelector('.cart-items');
+    cartItems.removeChild(element);
     updateCartTotal();
 }
 function updateCartTotal () {
