@@ -92,7 +92,8 @@ window.addEventListener("DOMContentLoaded", function () {
 function showPerson(index) {
     const profile = reviews[index];
 
-    body.innerHTML = `<div class="review-img-container">
+    body.innerHTML = `
+    <div class="review-img-container">
         <img class="review-img"
              src=${profile.img}
         alt=${profile.name}/>

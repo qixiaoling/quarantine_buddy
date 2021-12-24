@@ -108,8 +108,13 @@ window.addEventListener("DOMContentLoaded", function(){
 
 function loadMenuItems(menus){
     let menuItems = menus.map(function(menuItem) {
-        return `<article class="menu-item" data-id=${menuItem.category}>
-      <img src=${menuItem.img} alt=${menuItem.title} class="shop-item-photo" />
+        return `
+    <article class="menu-item" data-id=${menuItem.category}>
+    <div class="cart-img-container">
+     <img src=${menuItem.img} alt=${menuItem.title} class="shop-item-photo" />
+      <button class="cart-add-btn">add</button>
+    </div>
+     
       <div class="item-info">
         <div class="item-title">
           <h4 class="shop-item-title">${menuItem.title}</h4>
@@ -118,7 +123,7 @@ function loadMenuItems(menus){
         <p class="item-text">
           ${menuItem.desc}
         </p>
-        <button class=" btn shop-item-btn">Add To Cart</button>
+       
       </div>
     </article>`;
     })
@@ -172,7 +177,7 @@ function ready() {
         input.addEventListener('change', quantityChanged);
     }
 
-    const addToCartButtons = document.querySelectorAll('.shop-item-btn');
+    const addToCartButtons = document.querySelectorAll('.cart-add-btn');
     for (let i= 0 ; i< addToCartButtons.length; i++) {
         const button = addToCartButtons[i];
         button.addEventListener("click", addToCartClicked);

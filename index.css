@@ -764,13 +764,43 @@ is to make sure that 1rem which was there originally (when text is not shown)
     max-width: 25rem;^/*so that it will not be that big,
     since it is for small screen anyway*/
 }
+.cart-img-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
 .shop-item-photo {
     width: 100%;
     height: 225px;
     object-fit: cover;
     border: 5px solid var(--clr-yellow);
     border-radius: var(--radius);
+    transition: all 500ms ease-in-out;
 
+}
+.cart-add-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(100%, -100%);
+    transition: all 500ms ease-in-out;
+    padding: 0.2em 0.4em;
+    font-size: 1.4rem;
+    background: var(--clr-darkGreen);
+    color: var(--clr-light);
+    border-radius: 0.5rem 0 0 0;
+}
+.cart-add-btn:hover {
+    color: var(--clr-darkGreen-darker);
+    background: var(--clr-light);
+}
+.cart-img-container:hover .cart-add-btn {
+    /*When mouse hovering the bigger container, what happens to the button inside of the container*/
+    /*"transition" should be written on .cart-btn and .product-img!!!*/
+    transform: translate(0, 0);
+}
+.cart-img-container:hover .shop-item-photo {
+    transform:scale(1.2);
 }
 .item-title {
     display: flex;
