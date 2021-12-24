@@ -1,6 +1,8 @@
 //Navbar: by clicking the hamburger menu, one will add the classList to the body.
 //when body has the "nav-open" class, the hidden nav will translate back to 0 and show itself.
 //by clicking any of the link, the classList on the body will be removed.
+
+
 const nav_toggle = document.querySelector(".nav-toggle");
 const nav_links = document.querySelectorAll(".nav-link");
 
@@ -13,6 +15,8 @@ nav_links.forEach(function (link) {
         document.body.classList.remove("nav-open");
     })
 })
+
+
 //Tab: first remove all the active classList, then add based on the dataset.id
 const value = document.querySelector(".our-value");
 const valueBtns = document.querySelectorAll(".value-btn");
@@ -85,7 +89,6 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
 function showPerson(index) {
     const profile = reviews[index];
 
@@ -114,17 +117,19 @@ function showPerson(index) {
 
 
 }
-function nextPerson(){
+
+function nextPerson() {
     counter++;
-    if(counter > reviews.length-1){
+    if (counter > reviews.length - 1) {
         counter = 0;
     }
     showPerson(counter);
 }
-function prevPerson(){
+
+function prevPerson() {
     counter--;
-    if(counter < 0){
-        counter = reviews.length-1;
+    if (counter < 0) {
+        counter = reviews.length - 1;
     }
     showPerson(counter);
 }
@@ -132,25 +137,29 @@ function prevPerson(){
 //***************** Modal Section *************************/
 const modalSection = document.querySelector(".modal-section")
 
-window.addEventListener("DOMContentLoaded", showModal);
+window.addEventListener("DOMContentLoaded", dummy);
 
+function dummy() {
+    console.log("dummy")
+}
 
-
-function showModal(){
-    setTimeout(()=>{
+function showModal() {
+    setTimeout(() => {
         modalSection.classList.add("modal-active");
     }, 3000);
 
-    const modalCloseBtn= document.querySelector(".modal-close-btn");
-    modalCloseBtn.addEventListener("click", function(){
+    const modalCloseBtn = document.querySelector(".modal-close-btn");
+    modalCloseBtn.addEventListener("click", function () {
         modalSection.classList.remove("modal-active")
         console.log("hi am modal");
     })
 }
+
 //***************** Questions Section *************************/
 //***************** Gallery Section *************************/
 
 //***************** Menu Section *************************/
 
+//*********************** Grocery **********************************/
 
 

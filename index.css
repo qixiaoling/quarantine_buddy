@@ -74,7 +74,7 @@ strong {
     padding: .5em 2.5em;
     background: var(--clr-darkGreen);
     color: var(--clr-dark);
-    border-radius: var(--radius);
+    border-radius: var(--radius-small);
     text-decoration: none;
     cursor: pointer;
     font-size: .8rem;
@@ -245,6 +245,12 @@ just stack on top of each other as the normal HTML flow*/
     display: flex;
     justify-content: space-evenly;
 
+}
+.hero-link {
+    font-size: var(--fs-body);
+    font-weight: var(--fw-bold);
+    color: var(--clr-light);
+    text-decoration: none;
 }
 @media (min-width: 800px) {
     .btn-container {
@@ -738,6 +744,10 @@ is to make sure that 1rem which was there originally (when text is not shown)
     border-radius: 10%;
     border: 2px solid var(--clr-yellow);
 }
+.filter-btn:hover {
+    background-color: var(--clr-yellow);
+    color: var(--clr-dark);
+}
 .menu-section-center {
     width: 100%;
     margin: 0 auto; /*^^^^Put the container in the center*/
@@ -747,9 +757,9 @@ is to make sure that 1rem which was there originally (when text is not shown)
     justify-items: center;/*^^^^Put the items inside in the center.*/
 }
 
-.menu-item {
+.menu-item {//*must use second grid! because the layout will change when screen gets bigger!*/
     display: grid;/*second grid*/
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
     grid-row-gap: 0.5em;
     max-width: 25rem;^/*so that it will not be that big,
     since it is for small screen anyway*/
@@ -808,6 +818,7 @@ is to make sure that 1rem which was there originally (when text is not shown)
     border-radius: var(--radius);
     box-shadow: var(--bs);
     padding: 2rem 3.5rem;
+    /*don't define height, as the list gets longer*/
 }
 .grocery-alert {
     margin-bottom: 1em;
@@ -932,4 +943,98 @@ button looks nice and take up the 100% of the space*/
 }
 .clear-btn:hover {
     color: var(--clr-red-darker);
+}
+/***************** Footer Section *************************/
+.footer {
+    width: 100vw;
+    margin: 0 auto;
+}
+.footer-wrapper{
+    width: 60vw;
+    max-width: 65vw;
+    margin: 0 auto;
+    padding: 2em 0;
+}
+.footer-title {
+    display: grid;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3em;
+}
+.footer-title h3 {
+    flex: 1 0 auto;
+}
+.footer-form input,
+.footer-form button{
+    padding: 0.5rem;
+    font-family: var(--ff-primary);
+    border-radius: var(--radius-small);
+
+}
+.footer-form input {
+    border-color: transparent;
+    padding-left: 1rem;
+}
+.footer-form input::placeholder {
+    font-weight: var(--fw-bold);
+}
+.footer-form button {
+    border-color: var(--clr-light);
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+}
+.footer-text {
+    display: flex;
+    width: 55%;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-bottom i{
+    font-size: var(--fs-h3);
+}
+.footer-bottom p{
+    font-size: 0.85rem;
+}
+.social-icons {
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+
+
+.footer-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em 1em;
+    text-decoration: none;
+
+}
+@media (min-width: 800px) {
+    .footer-body {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+.footer-item {
+    display: flex;
+    flex-direction: column;
+}
+.footer-col {
+    list-style: none;
+    padding-left: 0;
+}
+.footer-item h3:hover,
+.footer-item li:hover {
+    color:var(--clr-darkGreen);
+}
+.footer-col li {
+    font-weight: var(--fw-reg);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
