@@ -222,6 +222,13 @@ function addItemToCart(title, price, imageSrc) {
     const cartItem = document.createElement('div');
     cartItem.classList.add('cart-items-individual');
     const cartItems = document.querySelector('.cart-items');
+    const cartItemsNames = cartItems.querySelectorAll('.cart-item-title');
+    for (let i=0; i<cartItemsNames.length ; i++) {
+        if(cartItemsNames[i].innerText === title) {
+            alert('This item is already added to the cart');
+            return
+        }
+    }
 
     const cartItemContent = `
         <div class="cart-item cart-column"> <!-- 45% -->
