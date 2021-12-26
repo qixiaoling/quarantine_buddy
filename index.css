@@ -86,6 +86,28 @@ strong {
 .btn:hover {
     transform: scale(1.1);
 }
+.btn-smaller {
+    display: inline-block;
+    padding: .5em 0.8em;
+    background: var(--clr-darkGreen);
+    color: var(--clr-dark);
+    border-radius: var(--radius-small);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;
+}
+.btn-smaller:hover {
+    transform: scale(1.1);
+}
+@media (min-width: 880px) {
+    .btn-smaller {
+        padding: .5em 2.5em;
+    }
+}
 
 /* ************************Typography* ***************************/
 h1,
@@ -131,17 +153,38 @@ header {
     color: var(--clr-light);
     text-decoration: none;
 }
+.logo-link p {
+    font-size: var(--fs-h2);
+    margin: 0;
+}
+/*@media (min-width: 880px) {*/
+/*    .logo {*/
+/*        font-size: var(--fs-h2);*/
+/*    }*/
+/*    .logo-link p {*/
+/*        font-size: var(--fs-h2);*/
+/*        margin: 0;*/
+/*    }*/
+/*}*/
 /******** 2. Hamburger menu **********/
 .nav-toggle {
     position: absolute;/*out of doc, later when.open-nav, becomes even fixed*/
     right: 1em;
-    top: 1.5em;
+    top: 2em;
     padding: .5em;
     background: transparent;
     border: none;
     cursor: pointer;
     z-index: 1000; /*important, otherwise, cannot see it when nav-links show.*/
 
+}
+@media (min-width: 880px) {
+    .nav-toggle {
+
+        right: 1.5em;
+        top: 3em;
+        padding: .5em;
+    }
 }
 .hamburger {
     display: block;
@@ -151,10 +194,17 @@ header {
 .hamburger::before,
 .hamburger::after {
     background-color: var(--clr-light);
-    width: 4em;
+    width: 3em;
     height: 6px;
     border-radius: 1em;
     transition: transform 250ms ease-in-out;
+}
+@media (min-width: 880px) {
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+        width: 4em;
+    }
 }
 
 .hamburger::before,
@@ -718,7 +768,7 @@ is to make sure that 1rem which was there originally (when text is not shown)
 /***************** Menu Section *************************/
 
 .menu-section {
-    max-width: 95vw;
+    max-width: 90vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -816,7 +866,7 @@ is to make sure that 1rem which was there originally (when text is not shown)
 }
 /******************Cart TITLE**************************************/
 .cart-row {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
 }
@@ -844,7 +894,7 @@ is to make sure that 1rem which was there originally (when text is not shown)
 /******************Cart ITEMS **************************************/
 
 .cart-items {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -856,25 +906,30 @@ is to make sure that 1rem which was there originally (when text is not shown)
     flex-direction: row;
 }
 .cart-item {
-    width: 45%;
+    width: 40%;
 }
 
 .cart-price {
-    width: 20%;
+    width: 30%;
     font-size: 1.2em;
     color: var(--clr-light);
 }
 
 .cart-quantity {
-    width: 35%;
+    width: 30%;
 }
 
 .cart-item-title {
     color: var(--clr-light);
     margin-left: .5em;
     font-size: 1.2em;
+    display: none;
 }
-
+@media (min-width: 880px) {
+    .cart-item-title {
+        display: block;
+    }
+}
 .cart-item-image {
     width: 75px;
     height: auto;
@@ -895,7 +950,7 @@ is to make sure that 1rem which was there originally (when text is not shown)
 
 .cart-quantity-input {
     height: 34px;
-    width: 50px;
+    width: 35px;
     border-radius: 5px;
     border: 1px solid var(--clr-yellow);
     background-color: #eee;
@@ -903,8 +958,14 @@ is to make sure that 1rem which was there originally (when text is not shown)
     padding: 0;
     text-align: center;
     font-size: 1.2em;
-    margin-right: 25px;
+    margin-right: 10px;
 }
+@media (min-width: 880px) {
+    .cart-quantity-input {
+        width: 50px;
+    }
+}
+
 
 .cart-row:last-child {
     border-bottom: 1px solid var(--clr-light);
@@ -967,13 +1028,24 @@ is to make sure that 1rem which was there originally (when text is not shown)
 
 /***************** Grocery Section *************************/
 .grocery-section {
-    width: 60vw;
+    width: 80%;
     max-width: 50rem;
     background-color: var(--clr-orange);
     border-radius: var(--radius);
     box-shadow: var(--bs);
-    padding: 2rem 3.5rem;
+    padding: 2rem 1rem;
     /*don't define height, as the list gets longer*/
+}
+@media (min-width: 880px) {
+    .grocery-section {
+        width: 60%;
+        max-width: 50rem;
+        background-color: var(--clr-orange);
+        border-radius: var(--radius);
+        box-shadow: var(--bs);
+        padding: 2rem 3.5rem;
+        /*don't define height, as the list gets longer*/
+    }
 }
 .grocery-alert {
     margin-bottom: 1em;
