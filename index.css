@@ -157,15 +157,7 @@ header {
     font-size: var(--fs-h2);
     margin: 0;
 }
-/*@media (min-width: 880px) {*/
-/*    .logo {*/
-/*        font-size: var(--fs-h2);*/
-/*    }*/
-/*    .logo-link p {*/
-/*        font-size: var(--fs-h2);*/
-/*        margin: 0;*/
-/*    }*/
-/*}*/
+
 /******** 2. Hamburger menu **********/
 .nav-toggle {
     position: absolute;/*out of doc, later when.open-nav, becomes even fixed*/
@@ -411,6 +403,7 @@ just stack on top of each other as the normal HTML flow*/
 }
 .section__title--review {
     margin-bottom: .7em;
+    font-size: 1.75rem;
 }
 .review-title {
     position: relative;
@@ -418,7 +411,7 @@ just stack on top of each other as the normal HTML flow*/
     flex-wrap: nowrap;
 }
 .underline {
-    width: 160px;
+    width: 80px;
     height: 5px;
     background-color: var(--clr-red);
     position: absolute;
@@ -428,7 +421,11 @@ just stack on top of each other as the normal HTML flow*/
 
 }
 @media (min-width: 800px) {
+    .section__title--review {
+        font-size: var(--fs-h2);
+    }
     .underline {
+        width: 160px;
         top: 4em;
     }
 }
@@ -703,7 +700,7 @@ is to make sure that 1rem which was there originally (when text is not shown)
 /***************** Gallery Section *************************/
 .gallery-section {
     max-width: 90%;
-    padding: 3em 5em;
+    padding: 3em 3em;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -721,11 +718,21 @@ is to make sure that 1rem which was there originally (when text is not shown)
     border: 5px solid var(--clr-darkGreen);
     max-width: 80rem;
     margin: 0 auto;
-    height: 45vh;
+    height: 25vh;
     border-radius: var(--radius);
     overflow: hidden;
     object-fit: cover;
 
+}
+@media (min-width: 880px) {
+    .gallery-slide-container {
+        height: 35vh;
+    }
+}
+@media (min-width: 960px) {
+    .gallery-slide-container {
+        height: 45vh;
+    }
 }
 
 .gallery-btn-container {
@@ -1190,13 +1197,26 @@ button looks nice and take up the 100% of the space*/
 }
 .footer-title h3 {
     flex: 1 0 auto;
+    line-height: 1.6;
+}
+@media (min-width: 880px) {
+    .footer-title h3 {
+        line-height: 0;
+    }
 }
 .footer-form input,
 .footer-form button{
     padding: 0.5rem;
     font-family: var(--ff-primary);
     border-radius: var(--radius-small);
+    margin-top: 0.5rem;
+}
 
+@media (min-width: 880px) {
+    .footer-form input,
+    .footer-form button{
+        margin-top: 0;
+    }
 }
 .footer-form input {
     border-color: transparent;
